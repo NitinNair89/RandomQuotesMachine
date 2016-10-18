@@ -1,5 +1,9 @@
 # RandomQuotesMachine
 
+# LIVE
+Access the link below to see how it works:
+https://nitinnair89.github.io/RandomQuotesMachine/
+
 # ABOUT
 A Random Quote Generator that fetches you random quotes when you click the "Randomize" button.
 Developed on top of Google's Materialize Reponsive framework, this "Machine" looks just fine on all screens!

@@ -1,7 +1,7 @@
 # RandomQuotesMachine
 
 # LIVE
-Access the link below to see how it works:
+Access the link to see how it works:
 https://nitinnair89.github.io/RandomQuotesMachine/
 
 # ABOUT

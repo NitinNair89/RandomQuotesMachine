@@ -42,6 +42,7 @@ section {
     padding: 5%;
     margin: 0;
     width: 100%;
+    padding-bottom: 0;
 }
 #quote-box{
     background: linear-gradient(195deg, darkslateblue, #26364a);
@@ -63,4 +64,8 @@ section {
     padding: 3px;
     font-family: 'Arima Madurai', cursive;
     font-size: larger;
+}
+footer {
+    position: relative;
+    bottom: 20px;
 }

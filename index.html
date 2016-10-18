@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link href="css/style.css" type="text/css" rel="stylesheet" >
+    <meta name="author" content="Nitin Chandran Nair">
+    <meta name="description" content="A simple Random Quote Generator that fetches you random quotes when you click the 'Randomize' button. Developed on top of Google's Materialize Reponsive framework, this 'Machine' looks just fine on all screens! A simple code and very easy to customize! All you need would be a 'Key' to fetch random quotes from the server!">
+</head>
+
+<body>
+    <section id="quote-box" class="center">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col s12 m12 l12">
+                    <div id="box">
+                        <h2 id="quote">"Everyone wants to be Different, but Death makes us the Same!"</h2>
+                        <h3 id="author" class="right"> - Nitin Chandran Nair</h3>
+                    </div>    
+                </div>
+            </div>   
+        </div>
+    </section>
+
+    <section class="center" id="randomize">
+        <div class="container">
+            <div class="row">
+                <div class="col s12 m12 l12">
+                    <button class="btn" id="randomize-btn">
+                        <span id="randomize-btn-icon">
+                            <i class="fa fa-1.5x fa-random"></i>
+                        </span>
+                        <span id="randomize-btn-text">
+                            Randomize!
+                        </span>
+                    </button>
+                </div>
+            </div>
+                        
+            <div class="row">
+                <div class="col s12 m4 l4">
+                    <div class="card-panel indigo-text darken-6 animated zoomIn" style="animation-delay:1s">
+                        <span>
+                            A Random Quote Generator that fetches you random quotes when you click the &quot;Randomize&quot; button above.
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="col s12 m4 l4">
+                    <div class="card-panel indigo-text darken-6 animated zoomIn" style="animation-delay:2s">
+                        <span>
+                            Developed on top of Google's Materialize Reponsive framework, this &quot;Machine&quot; looks just fine on all screens!
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="col s12 m4 l4">
+                    <div class="card-panel indigo-text darken-6 animated zoomIn" style="animation-delay:3s">
+                        <span>
+                            A simple code and very easy to customize! All you need is a &quot;Key&quot; to fetch random quotes from the server!
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section>
+        <footer class="indigo-text center">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col s12 m6 l8">
+                        <span id="social-links">
+                             <a href="https://www.facebook.com/nitin.c.nair.5" target="_blank">
+                                <i class="fa fa-2x fa-facebook"></i>
+                            </a> &nbsp;
+                            <a href="http://twitter.com/Nitin_Nair89" target="_blank">
+                                <i class="fa fa-2x fa-twitter"></i>
+                            </a> &nbsp;
+                            <a href="https://plus.google.com/+NitinNair89" target="_blank">
+                                <i class="fa fa-2x fa-google"></i>
+                            </a> &nbsp;
+                            <a href="https://github.com/NitinNair89" target="_blank">
+                                <i class="fa fa-2x fa-github"></i>
+                            </a> &nbsp;
+                            <a href="http://codepen.io/Nitin-Chandran-Nair" target="_blank">
+                                <i class="fa fa-2x fa-codepen"></i>
+                            </a>
+                        </span>
+                    </div>
+                    <div class="col s12 m6 l4">
+                        <span>Developed by <a href="http://www.nitinchandrannair.com" target="_blank">Nitin Chandran Nair</a></span>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </section>
+    
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script type="text/javascript" src="js/materialize.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            animateQuote();
+            animateAuthor();
+            
+            $('#randomize-btn').hover(function(){
+              $(this).toggleClass('animated jello');  
+            });
+            
+            $("#randomize-btn").click(function() {
+                $('#randomize-btn-text').text('Loading...');
+                getQuote();
+                $("#quote").removeClass("animated zoomIn");
+                $("#author").removeClass("animated zoomIn");
+            });
+        });
+        
+function getQuote() {
+  var   quote = "",
+        author = "";
+        $.ajax({
+        headers: {
+          "X-Mashape-Key": "aCzpm291xwmsh4g54RynmOcyjXfBp1rXfUVjsni3bQW3qAMh6x",
+          "Content-Type": "application/x-www-form-urlencoded",
+          Accept: "application/json"
+        },
+        url: "https://andruxnet-random-famous-quotes.p.mashape.com/?cat=famous",
+        success: function(data) {
+          var d = JSON.parse(data);
+          quote = d.quote;
+          author = d.author;
+          updateQuote(quote);
+          updateAuthor(author);
+            $('#randomize-btn-text').text('Randomize');
+        }
+      });
+    }
+
+function updateQuote(quote) {
+    document.getElementById("quote").innerHTML = quote;
+    animateQuote();
+}
+
+function updateAuthor(author) {
+  document.getElementById("author").innerHTML = " - " + author;
+  animateAuthor();
+}
+
+function animateQuote() {
+  $("#quote").addClass("animated zoomIn");
+}
+
+function animateAuthor() {
+  $("#author").addClass("animated zoomIn");
+}
+    </script>
+</body>
+</html>

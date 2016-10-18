@@ -1,0 +1,66 @@
+@import 'https://fonts.googleapis.com/css?family=Arima+Madurai';
+* {border: 0;}
+html,
+body {
+  height: 100%;
+  width: 100%;
+}
+body{
+    overflow: hidden;
+    color: white;
+}
+@media (max-width:960px) {
+    body {overflow: scroll;}
+}
+.bold {
+    font-weight: bolder;
+}
+#top-right-banner {
+    position: absolute;
+    top:0;
+    right: 0;
+    border: 0;
+    padding: 5px;
+}
+@keyframes blink {
+    50% {opacity: 1;}
+}
+#box h2{
+  font-size: 250%;
+  font-family: 'Arima Madurai', cursive;
+  font-weight: bold;
+}
+
+#box h3,#about {
+  font-size: medium;
+  font-family: 'Arima Madurai', cursive;
+}
+@media screen and (max-width:450px){
+    #box {padding: 7%;}
+}
+section {
+    padding: 5%;
+    margin: 0;
+    width: 100%;
+}
+#quote-box{
+    background: linear-gradient(195deg, darkslateblue, #26364a);
+}
+#randomize-btn {
+    background: dodgerblue;
+    transition: all 0.9s;
+    font-size: larger;
+}
+#randomize-btn:HOVER{
+   background-color: darkslateblue;
+}
+@keyframes gradient-animation{
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+#randomize {
+    padding: 3px;
+    font-family: 'Arima Madurai', cursive;
+    font-size: larger;
+}

@@ -105,6 +105,7 @@
     
     <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
     <script type="text/javascript" src="js/materialize.min.js"></script>
+    <script type="text/javascript" src="config/config.js"></script>
     <script>
         $(document).ready(function(){
             animateQuote();
@@ -123,11 +124,12 @@
         });
         
 function getQuote() {
-  var   quote = "",
-        author = "";
+    var quote = "",
+        author = "",
+        key = config.MyKey;
         $.ajax({
         headers: {
-          "X-Mashape-Key": "aCzpm291xwmsh4g54RynmOcyjXfBp1rXfUVjsni3bQW3qAMh6x",
+          "X-Mashape-Key": key,
           "Content-Type": "application/x-www-form-urlencoded",
           Accept: "application/json"
         },

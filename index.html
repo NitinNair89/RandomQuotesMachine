@@ -43,7 +43,7 @@
                         
             <div class="row">
                 <div class="col s12 m4 l4">
-                    <div class="card-panel indigo-text darken-6 animated zoomIn" style="animation-delay:1s">
+                    <div class="card-panel indigo-text darken-6">
                         <span>
                             A Random Quote Generator that fetches you random quotes when you click the &quot;Randomize&quot; button above.
                         </span>
@@ -51,7 +51,7 @@
                 </div>
                 
                 <div class="col s12 m4 l4">
-                    <div class="card-panel indigo-text darken-6 animated zoomIn" style="animation-delay:2s">
+                    <div class="card-panel indigo-text darken-6">
                         <span>
                             Developed on top of Google's Materialize Reponsive framework, this &quot;Machine&quot; looks just fine on all screens!
                         </span>
@@ -59,7 +59,7 @@
                 </div>
                 
                 <div class="col s12 m4 l4">
-                    <div class="card-panel indigo-text darken-6 animated zoomIn" style="animation-delay:3s">
+                    <div class="card-panel indigo-text darken-6">
                         <span>
                             A simple code and very easy to customize! All you need is a &quot;Key&quot; to fetch random quotes from the server!
                         </span>
@@ -109,11 +109,7 @@
     <script>
         $(document).ready(function(){
             animateQuote();
-            animateAuthor();
-            
-            $('#randomize-btn').hover(function(){
-              $(this).toggleClass('animated jello');  
-            });
+            animateAuthor();           
             
             $("#randomize-btn").click(function() {
                 $('#randomize-btn-text').text('Loading...');

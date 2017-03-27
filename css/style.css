@@ -22,15 +22,14 @@ body{
     border: 0;
     padding: 5px;
 }
-@keyframes blink {
-    50% {opacity: 1;}
-}
+#box {
+  height: 380px;
+}  
 #box h2{
   font-size: 250%;
   font-family: 'Arima Madurai', cursive;
   font-weight: bold;
 }
-
 #box h3,#about {
   font-size: medium;
   font-family: 'Arima Madurai', cursive;
